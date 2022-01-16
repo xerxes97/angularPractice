@@ -1,0 +1,10 @@
+<!-- sellama el componente como fue declarado en el atributo selector en @Component -->
+
+<div class="productList">
+    <!-- $event captura la data enviada como parametros en el output -->
+    <app-product
+    *ngFor="let item of products"
+    (productCart)="clickProduct($event)"
+    [product]="item">
+  </app-product>
+  </div>

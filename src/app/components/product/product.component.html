@@ -1,0 +1,10 @@
+<!-- pipe => | significa que recibe datos y los transforma -->
+<!-- Esta etiqueta es la que identifica al cmponente segun la ruta -->
+
+{{product.title | uppercase}}
+<img src={{product.image}} alt="">
+<strong>{{product.price | currency:'$ '}}</strong>
+<p>{{product.description | slice:0:5}}</p>
+<p>{{today | date: 'dd/MM/yyyy : hh:mm:ss'}}</p>
+<!-- Este pipe corta dentro de un rango, solo muestra los primeros 5 caracteres -->
+<button (click)="addCart()">Agregar</button>

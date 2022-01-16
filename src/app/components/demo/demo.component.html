@@ -1,0 +1,35 @@
+{{"Hi everibody"}}
+{{1+2}}
+{{title}}<br>
+<input type="text" [(ngModel)] = "title">
+
+<!-- Condicionales -->
+<div *ngIf="title === 'show'">
+  Probando
+</div>
+
+<div *ngIf="title === 'version'">
+  Probando
+</div>
+
+<div *ngIf="title === 'destroy'">
+  Probando
+</div>
+
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'primero'">primero</p>
+  <p *ngSwitchCase="'segundo'">segundo</p>
+  <p *ngSwitchCase="'tercero'">tercero</p>
+  <p *ngSwitchDefault>noMatch</p>
+</div>
+
+<!-- ciclo for, declarar variable de iteración y el array a iterar, index= la posiscion en la que esta-->
+<ul>
+  <li *ngIf="names.length === 0">No ahí elementos</li>
+  <li *ngFor="let name of names; index as i">{{name}} Posición {{i}} del array names
+    <button (click)="deleteName(i)"> X </button>
+  </li>
+</ul>
+
+<!-- agregando función segun una accion -->
+<button (click)="addName(title)">Agregar</button>
