@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContactComponent } from './components/contact/contact.component';
 import { DemoComponent } from './components/demo/demo.component';
 import { HomeComponent } from './components/home/home.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProductsGalleryComponent } from './components/products-gallery/products-gallery.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -10,24 +12,35 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
-    pathMatch:'full'
-  },
-  {
-    path: 'contact',
-    component: ContactComponent
-  },
-  {
-    path: 'products',
-    component: ProductsGalleryComponent
-  },
-  {
-    path: 'demo',
-    component: DemoComponent
-  },
-  {
-    path: 'home',
-    component: HomeComponent
+    component: LayoutComponent,
+    //Los hijos heredan la composición del padre
+    children:[
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch:'full',
+      },
+      {
+        path: 'contact',
+        component: ContactComponent
+      },
+      {
+        path: 'products',
+        component: ProductsGalleryComponent
+      },
+      {
+        path: 'products/:id',
+        component: ProductDetailComponent
+      },
+      {
+        path: 'demo',
+        component: DemoComponent
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+    ]
   },
   {
     path: '**',

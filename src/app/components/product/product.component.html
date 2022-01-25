@@ -8,3 +8,4 @@
 <p>{{today | date: 'dd/MM/yyyy : hh:mm:ss'}}</p>
 <!-- Este pipe corta dentro de un rango, solo muestra los primeros 5 caracteres -->
 <button (click)="addCart()">Agregar</button>
+<a [routerLink]="['/products', product.id]">Ver Detalle</a>
