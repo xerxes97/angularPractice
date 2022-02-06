@@ -9,13 +9,12 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ProductsGalleryComponent } from './components/products-gallery/products-gallery.component';
 import { DemoComponent } from './components/demo/demo.component';
 import { HomeComponent } from './components/home/home.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { SwiperModule } from 'swiper/angular';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { LayoutComponent } from './components/layout/layout.component'
+import { SharedModule } from './components/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -25,8 +24,6 @@ import { LayoutComponent } from './components/layout/layout.component'
     ProductsGalleryComponent,
     DemoComponent,
     HomeComponent,
-    HeaderComponent,
-    FooterComponent,
     BannerComponent,
     NotFoundComponent,
     ProductDetailComponent,
@@ -36,7 +33,8 @@ import { LayoutComponent } from './components/layout/layout.component'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    SwiperModule
+    SwiperModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
