@@ -6,10 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { ProductsGalleryComponent } from './components/products-gallery/products-gallery.component';
+import { ProductsGalleryComponent } from './components/products-gallery/products-gallery/products-gallery.component';
 import { DemoComponent } from './components/demo/demo.component';
-import { HomeComponent } from './components/home/home.component';
-import { BannerComponent } from './components/banner/banner.component';
 import { SwiperModule } from 'swiper/angular';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
@@ -23,8 +21,6 @@ import { SharedModule } from './components/shared/shared.module';
     ContactComponent,
     ProductsGalleryComponent,
     DemoComponent,
-    HomeComponent,
-    BannerComponent,
     NotFoundComponent,
     ProductDetailComponent,
     LayoutComponent,
