@@ -11,11 +11,11 @@ import { product } from '../../../../models/productModel'
 })
 export class ProductComponent{
 
-    @Input() product: product;
+    @Input() product: any;
     @Output() productCart: EventEmitter<any> = new EventEmitter();
-
+    
     today = new Date();
-
+    
     addCart(){
         console.log('agregado');
         this.productCart.emit(this.product.id);

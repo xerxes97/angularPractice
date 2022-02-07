@@ -5,6 +5,7 @@ import { DemoComponent } from './components/demo/demo.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AdminGuard } from './admin.guard';
 
 // Creacion del objeto del array routes que va a contener las rutas y el componente que renderiza cada una
 const routes: Routes = [
@@ -19,7 +20,9 @@ const routes: Routes = [
         pathMatch:'full',
       },
       {
+        //import del guardian
         path: 'contact',
+        canActivate: [AdminGuard],
         component: ContactComponent
       },
       {
