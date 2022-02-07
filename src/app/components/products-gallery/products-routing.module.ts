@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductsGalleryComponent } from './products-gallery/products-gallery.component';
+import { ProductsGalleryComponent } from './components/products-gallery/products-gallery.component';
 
 const routes: Routes =[{
     path:'',

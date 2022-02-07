@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ContactComponent } from './components/contact/contact.component';
 import { DemoComponent } from './components/demo/demo.component';
-import { HomeComponent } from './components/home/components/home/home.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-import { ProductsGalleryComponent } from './components/products-gallery/products-gallery/products-gallery.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 // Creacion del objeto del array routes que va a contener las rutas y el componente que renderiza cada una
@@ -26,7 +24,8 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        component: ProductsGalleryComponent
+        // component: ProductsGalleryComponent
+        loadChildren: () => import('./components/products-gallery/products.module').then(m => m.ProductsModule)
       },
       {
         path: 'products/:id',
