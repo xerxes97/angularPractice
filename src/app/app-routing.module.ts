@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ContactComponent } from './components/contact/contact.component';
 import { DemoComponent } from './components/demo/demo.component';
-import { HomeComponent } from './components/home/home.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-import { ProductsGalleryComponent } from './components/products-gallery/products-gallery.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AdminGuard } from './admin.guard';
 
 // Creacion del objeto del array routes que va a contener las rutas y el componente que renderiza cada una
 const routes: Routes = [
@@ -21,12 +20,15 @@ const routes: Routes = [
         pathMatch:'full',
       },
       {
+        //import del guardian
         path: 'contact',
+        canActivate: [AdminGuard],
         component: ContactComponent
       },
       {
         path: 'products',
-        component: ProductsGalleryComponent
+        // component: ProductsGalleryComponent
+        loadChildren: () => import('./components/products-gallery/products.module').then(m => m.ProductsModule)
       },
       {
         path: 'products/:id',
@@ -38,7 +40,8 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        component: HomeComponent
+        // component: HomeComponent
+        loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
       },
     ]
   },
@@ -51,7 +54,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules
+    //Estrategia de carga de modulos, con este tipo de configuracion va a cargar todos los modulos
+    //en la primera carga, pero solo hasta que este disponible la red, primero carga los necesarios
+    //y a continuación ños demas
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

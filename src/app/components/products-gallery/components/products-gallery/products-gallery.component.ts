@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { product } from 'src/app/models/productModel';
-import { ProductsService } from 'src/app/services/products.service';
+import { ProductsService } from 'src/app/components/core/services/products/products.service';
 
 @Component({
   selector: 'app-products-gallery',
@@ -13,14 +13,21 @@ export class ProductsGalleryComponent implements OnInit {
     console.log("id: "+id+" seleccionado");
   }
 
-  products: product[];
+  products: any;
   
   constructor(
     private productsService: ProductsService
   ) { }
 
   ngOnInit(): void {
-    this.products = this.productsService.getAllProducts();
+    this.fetchProducts();
   }
 
+  fetchProducts(){
+    this.productsService.getAllProducts()
+    .subscribe(products => {
+      console.log(products.Datos.Ítems)
+      this.products = products.Datos.Ítems;
+    })
+  }
 }
